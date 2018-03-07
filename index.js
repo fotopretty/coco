@@ -12,6 +12,8 @@ var bot = linebot({
 bot.on('message', function (event) {
     event.reply(event.message.text).then(function (data) {
         console.log('Success', data);
+    }).catch(function(err){
+        console.log('Error', err);
     });
 
 });
