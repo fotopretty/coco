@@ -2,7 +2,12 @@ var linebot = require('linebot');
 const { LineClient } = require('messaging-api-line');
 
 require('dotenv').config();
-const client = LineClient.connect(process.env.CHANNEL_ACCESS_TOKEN, process.env.CHANNEL_SECRET);
+const client = LineClient.connect({
+    accessToken: process.env.CHANNEL_ACCESS_TOKEN, 
+    channelSecret: process.env.CHANNEL_SECRET,
+    origin: 'https://cocobotline.herokuapp.com,'
+});
+
 client.reply(REPLY_TOKEN, [
     {
         type: 'text',
