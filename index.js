@@ -10,8 +10,11 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-    event.reply('yahoo');
-    
+    event.reply(event.message.text).then(function(data){
+        console.log('Success' , data);
+    }).catch(function(error){
+        console.log('Error', error);
+    });
 });
 
 bot.listen('/webhook', process.env.PORT || 80, function () {
