@@ -6,8 +6,8 @@ const client = LineClient.connect(process.env.CHANNEL_ACCESS_TOKEN, process.env.
 client.reply(REPLY_TOKEN, [
     {
         type: 'text',
-        text: 'Hello',
-    },
+        text: 'Hello'
+    }
 ]);
 
 client.listen('/webhook', process.env.PORT || 80, function(){
