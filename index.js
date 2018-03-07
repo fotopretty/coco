@@ -10,18 +10,22 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-    switch (event.message.text) {
-        case 'Me':
-            event.source.profile().then(function (profile) {
-                return even.reply('Hello ' + profile.displayName + ' ' + profile.userId);
-            });
-            break;
-        default:
-            event.reply(event.message.text).then(function (data) {
-                console.log('Success', data);
-            });
-            console.log('what');
-            break;
+    switch (event.message.type) {
+        case 'text':
+
+            switch (event.message.text) {
+                case 'Me':
+                    event.source.profile().then(function (profile) {
+                        return even.reply('Hello ' + profile.displayName + ' ' + profile.userId);
+                    });
+                    break;
+                default:
+                    event.reply(event.message.text).then(function (data) {
+                        console.log('Success', data);
+                    });
+                    console.log('what');
+                    break;
+            }
     }
 });
 
