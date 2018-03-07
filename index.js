@@ -12,7 +12,6 @@ bot.on('message', function (event) {
     event.reply(event.message.text).then(function (data) {
         console.log('Success', data);
     });
-    console.log('what');
 
 });
 
