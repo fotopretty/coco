@@ -11,6 +11,7 @@ var bot = linebot({
 
 bot.on('message', function (event) {
     event.reply('yahoo');
+    
 });
 
 bot.listen('/webhook', process.env.PORT || 80, function () {
