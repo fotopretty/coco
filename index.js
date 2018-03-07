@@ -10,23 +10,11 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-    switch (event.message.type) {
-        case 'text':
+    event.reply(event.message.text).then(function (data) {
+        console.log('Success', data);
+    });
+    console.log('what');
 
-            switch (event.message.text) {
-                case 'Me':
-                    event.source.profile().then(function (profile) {
-                        return even.reply('Hello ' + profile.displayName + ' ' + profile.userId);
-                    });
-                    break;
-                default:
-                    event.reply(event.message.text).then(function (data) {
-                        console.log('Success', data);
-                    });
-                    console.log('what');
-                    break;
-            }
-    }
 });
 
 bot.listen('/webhook', process.env.PORT || 80, function () {
